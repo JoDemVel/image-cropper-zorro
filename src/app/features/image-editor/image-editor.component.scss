@@ -1,0 +1,180 @@
+@import '../../../styles/variables.scss'; // Import your SCSS variables file
+
+.ant-image-editor-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+
+  .ant-image-editor-title {
+    text-align: center;
+    padding: 20px;
+
+    h2 {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.85);
+      font-weight: 500;
+    }
+  }
+
+  .ant-image-editor-upload-section {
+
+    text-align: center;
+
+    .ant-image-editor-upload {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      gap: 10px;
+
+      &:hover {
+        .upload-icon {
+          color: $primary-color;
+        }
+
+        .ant-upload-text {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .ant-upload-hint {
+      margin-top: 8px;
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    .upload-button-only {
+      display: inline-block;
+
+      .ant-upload {
+        display: inline-block;
+      }
+    }
+  }
+
+  .ant-image-editor-card {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 7px 14px 19px -3px rgba(0,0,0,0.20);
+    margin-bottom: 30px;
+
+    .ant-image-editor-header {
+      margin-bottom: 10px;
+
+      h3 {
+        margin: 0;
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 500;
+      }
+    }
+
+    .ant-image-editor-content {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      .custom-cropper {
+        width: 100%;
+
+        ::ng-deep {
+          .ngx-ic-overlay {
+            outline: 1px solid $primary-color !important;
+          }
+
+          .ngx-ic-cropper {
+            color: $primary-color !important;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            outline: rgb(0 0 0 / 50%) solid 100vw !important;
+          }
+
+          .ngx-ic-source-image {
+            max-height: 400px;
+          }
+
+          .ngx-ic-wrap-cropbox {
+            background-color: transparent !important;
+          }
+
+          .ngx-ic-square {
+            background-color: $primary-color !important;
+            border-radius: 9999px !important;
+          }
+
+          .ngx-ic-point {
+            width: 10px !important;
+            height: 10px !important;
+            background-color: $primary-color !important;
+            border: 2px solid white !important;
+          }
+        }
+      }
+    }
+
+    .ant-image-editor-preview {
+      text-align: center;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      h4 {
+        margin-bottom: 8px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+
+      .preview-container {
+        display: flex;
+        justify-content: center;
+
+        .cropped-image {
+          max-width: 150px;
+          max-height: 150px;
+          border-radius: 2px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+
+    .ant-image-editor-tools {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      .ant-btn {
+        margin: 0 4px;
+        border-radius: 5px;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+    }
+
+    .ant-image-editor-mascot {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+
+      img {
+        width: 80px;
+        height: auto;
+      }
+    }
+
+    .ant-image-editor-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+
+      button {
+        border-radius: 5px;
+      }
+    }
+  }
+}

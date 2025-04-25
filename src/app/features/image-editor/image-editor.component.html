@@ -1,0 +1,90 @@
+<div class="ant-image-editor-container">
+  <h2 *ngIf="!showCropper" nz-typography class="ant-image-editor-title">
+    Select Your Image and Crop it
+  </h2>
+  <div class="ant-image-editor-upload-section">
+    <nz-upload
+      *ngIf="!showCropper"
+      nzListType="picture-card"
+      [nzBeforeUpload]="beforeUpload"
+      [nzShowUploadList]="false"
+      [nzAccept]="'image/png,image/jpeg'"
+      [nzMultiple]="false"
+    >
+      <div class="ant-image-editor-upload">
+        <i
+          class="upload-icon"
+          nz-icon
+          [nzType]="loading ? 'loading' : 'file-image'"
+        ></i>
+        <span class="ant-upload-text">Upload</span>
+      </div>
+    </nz-upload>
+
+    <p *ngIf="!showCropper" class="ant-upload-hint">
+      Support for JPG or PNG, max size 2MB
+    </p>
+  </div>
+
+  <div>
+    <nz-card *ngIf="showCropper" class="ant-image-editor-card">
+      <div class="ant-image-editor-header">
+        <h3>Crop Image</h3>
+      </div>
+
+      <div class="ant-image-editor-content">
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1"
+          [resizeToWidth]="300"
+          [transform]="transform"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()"
+          class="custom-cropper"
+        ></image-cropper>
+      </div>
+
+      <div class="ant-image-editor-preview" *ngIf="croppedImage">
+        <nz-divider></nz-divider>
+        <h4>Preview</h4>
+        <div class="preview-container">
+          <img [src]="croppedImage" class="cropped-image" />
+        </div>
+      </div>
+
+      <div class="ant-image-editor-tools">
+        <nz-button-group>
+          <button nz-button nzType="default" (click)="rotateLeft()">
+            <i nz-icon nzType="rotate-left"></i>
+          </button>
+          <button nz-button nzType="default" (click)="rotateRight()">
+            <i nz-icon nzType="rotate-right"></i>
+          </button>
+          <button nz-button nzType="default" (click)="zoomIn()">
+            <i nz-icon nzType="zoom-in"></i>
+          </button>
+          <button nz-button nzType="default" (click)="zoomOut()">
+            <i nz-icon nzType="zoom-out"></i>
+          </button>
+        </nz-button-group>
+      </div>
+
+      <div class="ant-image-editor-actions">
+        <button nz-button nzType="default" (click)="reset()">Cancel</button>
+        <button
+          nz-button
+          nzType="primary"
+          (click)="downloadCroppedImage()"
+          [disabled]="!croppedImage"
+          nzTooltip="Download the cropped image"
+        >
+          <i nz-icon nzType="download"></i> Download
+        </button>
+      </div>
+    </nz-card>
+  </div>
+</div>
