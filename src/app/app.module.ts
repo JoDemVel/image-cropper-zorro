@@ -1,18 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { ZorroModule } from './zorro.module';
+
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 import { AppComponent } from './app.component';
+import { ImageEditorComponent } from './features/image-editor/image-editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImageEditorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ZorroModule,
+    ImageCropperModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
