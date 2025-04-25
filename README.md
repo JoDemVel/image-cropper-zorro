@@ -1,5 +1,41 @@
 # ImageCropperWithZorro
 
+## ngx-image-cropper styles used:
+```
+::ng-deep {
+  .ngx-ic-overlay {
+    outline: 1px solid $primary-color !important;
+  }
+
+  .ngx-ic-cropper {
+    color: $primary-color !important;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    outline: rgb(0 0 0 / 50%) solid 100vw !important;
+  }
+
+  .ngx-ic-source-image {
+    max-height: 400px;
+  }
+
+  .ngx-ic-wrap-cropbox {
+    background-color: transparent !important;
+  }
+
+  .ngx-ic-square {
+    background-color: $primary-color !important;
+    border-radius: 9999px !important;
+  }
+
+  .ngx-ic-point {
+    width: 10px !important;
+    height: 10px !important;
+    background-color: $primary-color !important;
+    border: 2px solid white !important;
+  }
+}
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
 ## Development server
